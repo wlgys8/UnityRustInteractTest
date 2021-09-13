@@ -1,0 +1,10 @@
+.DS_Store
+*.csproj
+Temp
+Library
+.vscode
+Logs
+obj
+*.sln
+/unityrust_native/target
+Cargo.lock
