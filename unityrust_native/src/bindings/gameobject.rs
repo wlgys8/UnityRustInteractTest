@@ -4,7 +4,7 @@ use std::marker::PhantomData;
 
 static mut _CONSTRUCTOR: Option<UnityDU32> = None;
 static mut _DESTRUCTOR:Option<UnityDVoidU32> = None;
-static mut _SET_ACTIVE:Option<UnityDVoidBool> = None;
+static mut _SET_ACTIVE:Option<UnityDVoidU32Bool> = None;
 
 #[no_mangle]
 extern fn bind_unityengine_gameobject_constructor(func:UnityDU32){
@@ -19,7 +19,7 @@ extern fn bind_unityengine_gameobject_destructor(func:UnityDVoidU32){
     }
 }
 #[no_mangle]
-extern fn bind_unityengine_gameobject_set_active(func:UnityDVoidBool){
+extern fn bind_unityengine_gameobject_set_active(func:UnityDVoidU32Bool){
     unsafe{
         _SET_ACTIVE = Some(func);
     }
