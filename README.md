@@ -477,8 +477,11 @@ let mut go = GameObject::new();
 go.set_active(false);
 ```
 
+# 6. 在Rust中更新Mesh
 
-# 6. 总结
+To be Written
+
+# 7. 总结
 
 以上就是在Unity中使用Rust与C#交互的过程。在绝大多数用例里，应该都是通过c#调用rust来完成高性能计算，rust调用c#多数是用在callback的时候。剩下把c#对象绑定到rust中这种行为，似乎没有什么有用的场景。
 
