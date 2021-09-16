@@ -20,16 +20,32 @@ public class BindingTest : MonoBehaviour
 
         var result = test_run_method(100);
         Assert.AreEqual(result,101); //
+
+        this.CreatePlane();
+    }
+
+    private RustMeshModifier _meshModifier;
+
+    private void CreatePlane(){
+        _meshModifier = new RustMeshModifier();
+        var meshFilter = new GameObject("Plane").AddComponent<MeshFilter>();
+        var meshRender = meshFilter.gameObject.AddComponent<MeshRenderer>();
+        meshFilter.sharedMesh = _meshModifier.mesh;
+        meshRender.sharedMaterial = new Material(Shader.Find("Standard"));
     }
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.Space)){
             System.GC.Collect();
         }
+        _meshModifier.Update();
+    }
+
+    void OnDestroy(){
+        _meshModifier.Dispose();
     }
 
     [DllImport("unity_rust")]
     private extern static int test_run_method(int val);
-
 
 }
